@@ -51,12 +51,18 @@ export async function getServerSideProps(context)
       data = doc.data()
     })
   })
+
+  const option = {
+    hour: ('numeric' || '3-digit'), 
+    minute: 'numeric',
+    second: ('numeric' || '2-digit')
+  }
   
   return{
     props:{
       name: data.name,
       photo: data.photoURL,
-      last_login : JSON.stringify(data.lastLogin .toDate().toLocaleTimeString() )
+      last_login : JSON.stringify(data.lastLogin .toDate().toLocaleTimeString('pt-br', option) )
     }
   }
 }
@@ -70,7 +76,7 @@ const Container = styled.div`
 
   span{
     font-size: 16px;
-    color: gray;
+    color: #fff;
     margin-top: 10px;
   }
 
