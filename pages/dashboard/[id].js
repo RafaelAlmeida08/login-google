@@ -29,7 +29,7 @@ function Dashboard(props){
             <Container>         
               <Avatar   sx={{ width: 100, height: 100 }}  alt="Remy Sharp" src={props.photo}  />
               <span>Last Login : {props.last_login} </span>
-              <h1>Welcome - {props.name}</h1>
+              <h1>{props.name}</h1>
               <Button sx={{bgcolor: 'white'}}  onClick={ () => auth.signOut()} variant="contained">
                 <LogoutIcon/>
                 Logout</Button>
@@ -74,8 +74,12 @@ const Container = styled.div`
     margin-top: 10px;
   }
 
-  h1{
+  h1,h2{
     color: white;
+  }
+
+  h2{
+    margin-top: -10px;
   }
 
   button{
